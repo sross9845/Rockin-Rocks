@@ -1,5 +1,5 @@
 <template>
-    <div className="Login">
+    <div class="App">
                 <h3>Log into your account!</h3>
                 {{message}}
                 <form @submit="handleSubmit">
@@ -7,6 +7,7 @@
                 Password: <input type='password' name='password' v-model="password" /> <br />
                 <input type='submit' value='Log In!' />
                 </form>
+                <button @click="toggleLogin">SignUp instead!</button>
     </div>
 </template>
 
@@ -21,7 +22,7 @@ export default {
             message: ''
         }
     },
-    props:["liftToken"],
+    props:["liftToken", "toggleLogin"],
     methods: {
         handleSubmit(e){
         var url = 'http://localhost:5000/auth'

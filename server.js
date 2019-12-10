@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 app.use(helmet())
 app.use(cors())
-mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
 db.once('open', () => {
     console.log(`connected to MongoDb on ${db.host}:${db.port}...`)
@@ -20,7 +20,9 @@ db.on('error', (err) => {
 })
 
 app.use('/auth', require('./routes/auth'))
-
+app.use('/user', require('./routes/user'))
+app.use('/orders', require('./routes/orders'))
+app.use('/products', require('./routes/products'))
 app.use('/locked',
     expressJWT({secret: process.env.JWT_SECRET}).unless({method: 'POST'}),
     require('./routes/locked'))

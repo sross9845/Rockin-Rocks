@@ -1,12 +1,18 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-
+// const Order = require('./order')
 
 // Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema({
-    name:{
+    firstName:{
         type:String,
-        required:[true, 'You must enter a name'],
+        required:[true, 'You must enter you first name'],
+        minlength: [1, 'Name must be between 1 and 99 characters'],
+        maxlength: [99, 'Name must be between 1 and 99 characters']
+    },
+    lastName:{
+        type:String,
+        required:[true, 'You must enter you last name'],
         minlength: [1, 'Name must be between 1 and 99 characters'],
         maxlength: [99, 'Name must be between 1 and 99 characters']
     },
@@ -21,7 +27,24 @@ var userSchema = new mongoose.Schema({
         required:[true, 'You must enter a password'],
         minlength: [8, 'Password must be between 8 and 128 characters'],
         maxlength: [128, 'Password must be between 8 and 128 characters']
-    }
+    },
+    address:{
+        type:String,
+        required:[true, 'You must enter a Address'],
+    },
+    city:{
+        type:String,
+        required:[true, 'You must enter a City'],
+    },
+    state:{
+        type:String,
+        required:[true, 'You must enter a State'],
+    },
+    zipCode:{
+        type:String,
+        required:[true, 'You must enter a Zip Code'],
+    },
+    admin: Boolean
 });
 
 userSchema.set('toObject', {
@@ -29,7 +52,13 @@ userSchema.set('toObject', {
         let returnJson = {
             _id: ret._id,
             email: ret.email,
-            name: ret.name,
+            firstName: ret.firstName,
+            lastName: ret.lastName,
+            address: ret.address,
+            city: ret.city,
+            state: ret.state,
+            zipCode: ret.zipCode,
+            admin: ret.admin
         }
         return returnJson
     }
