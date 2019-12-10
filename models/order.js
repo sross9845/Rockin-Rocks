@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 // const Rock = require('./rock')
 
 var productSchema = new mongoose.Schema({
+    prodId: String,
     title: String,
     price: Number,
     image: String

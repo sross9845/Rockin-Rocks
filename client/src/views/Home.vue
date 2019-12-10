@@ -2,7 +2,7 @@
   <div>
   <nav>
     <img class="logo" height="100px" width="150px" src="https://i.imgur.com/V67KGTn.png" alt="Logo">
-    <button class='logout' @click="logOut">Log Out</button>
+    <button v-bind:class='{logout: user, hidden: !user}' @click="logOut">Log Out</button>
   </nav>
   <div v-if="user" class="container mt-4" >
   <h3 class="App">We hope you love our Rockin Rocks. Unfortunately you can only order one of each rock at a time as it takes some time for us to make it and demand is high.</h3>
@@ -61,11 +61,13 @@ export default {
     }
   },
   created: function(){
+    this.checkForLocalToken()
+  },
+  beforeMount: function() {
     this.loadProducts()
   },
-  mounted: function() {
-    this.checkForLocalToken()
-    // this.loadProducts()
+  mounted: function(){
+    this.getCart()
   },
   methods:{
   loadProducts(){
@@ -124,6 +126,7 @@ export default {
       this.cart.push(product);
       var url = 'http://localhost:5000'
       axios.post(`${url}/orders/addproduct`, {
+        prodId: product._id,
         user_id: this.user._id,
         title: product.title,
         price: product.price,
@@ -140,10 +143,25 @@ export default {
     removeFromCart(product) {
       console.log(product)
       this.cart = this.cart.filter(item => item._id !== product._id);
+      var url = 'http://localhost:5000'
+      axios.get(`${url}/orders/removeitem/${this.user._id}/${product._id}`)
+      .then(order => {
+        console.log(product._id)
+        console.log(order)
+      })
     },
     pay() {
-      this.cart = []
-
+      this.$router.push('/checkout')
+    },
+    getCart(){
+        console.log('getting cart')
+      var url = 'http://localhost:5000'
+        setTimeout(()=>{ axios.get(`${url}/orders/current/${this.user._id}`)
+        .then(order => {
+            console.log(order)
+            this.cart = order.data.products
+        }) }, 300); 
+        
     }
   
   }
@@ -156,8 +174,12 @@ body {
   background-color: #dcdcdc;
 }
 .logout{
-  margin-left: 3em;
-
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+.hidden{
+  display: none;
 }
 .logo{
   /* padding-left: .5em; */
@@ -170,5 +192,6 @@ body {
 }
 nav{
   background-color: #252424e3;
+  position:relative;
 }
 </style>
