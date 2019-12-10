@@ -5,6 +5,7 @@
     <button class='logout' @click="logOut">Log Out</button>
   </nav>
   <div v-if="user" class="container mt-4" >
+  <h3 class="App">We hope you love our Rockin Rocks. Unfortunately you can only order one of each rock at a time as it takes some time for us to make it and demand is high.</h3>
     <div class="row">
       <div class="col-md-7">
         <div class="row">
@@ -159,9 +160,13 @@ body {
 
 }
 .logo{
-  padding-left: .5em;
+  /* padding-left: .5em; */
   border:2px whitesmoke solid;
   border-radius: 10px;
+}
+.title{
+  text-align: center;
+  margin-top: .5em;
 }
 nav{
   background-color: #252424e3;
