@@ -2,11 +2,11 @@
 
 
 ## Link to site
-***
+
 Use the default card for checkout please
 ***
 ## Technologies Used 
-***
+
 + VueJS
 + NodeJs
 + Express
@@ -15,13 +15,13 @@ Use the default card for checkout please
 + Bootstrap  
 ***
 ## What this is all about/Final Thoughts
-***
+
 This was my final project for my time at General Assembly. I took on and learned VueJS on my own and completed the initial app in a week. The project is based on the beautiful trend of Pet Rocks. I decided to bring them back and learn how to make a basic E-Commerce site to  learn how all of that works. My take aways from Vue is that it is AWESOME. I absolutely love Vue. If I had more of an angular background I might have had less snags throughout the week.
 Overall this was one of my favorite projects.
 
 ***
 ## The Week
-***
+
 ### Day -1 to Day 2
 The first few days was spent having my mind blown by Vue. This framework absolutely blew my mind with what it could do. It took alot of the good thing from react and some of the good things I hear about from angular and put them into this beautiful framework. I spent the night before the project doing a To-Do-List tutorial to see how I liked Vue and if I should take it on for the week and obviously I fell in love with it. 
 
