@@ -1,7 +1,9 @@
 <template>
   <div>
   <nav>
-    <img class="logo" height="100px" width="150px" src="https://i.imgur.com/V67KGTn.png" alt="Logo">
+    <img class="logo" height="75px" width="150px" src="https://i.imgur.com/qGYzvnC.png" alt="Logo">
+    <router-link class="home" to="/">Home</router-link>
+    <router-link class="history" to="/history">Order History</router-link>
     <button v-bind:class='{logout: user, hidden: !user}' @click="logOut">Log Out</button>
   </nav>
   <div v-if="user" class="container mt-4" >
@@ -162,6 +164,10 @@ export default {
             this.cart = order.data.products
         }) }, 300); 
         
+    },
+    home(){
+      this.$router.push('/')
+
     }
   
   }
@@ -176,7 +182,25 @@ body {
 .logout{
   position: absolute;
   right: 40px;
-  top: 40px;
+  top: 20px;
+}
+.history{
+  position: absolute;
+  left: 250px;
+  top: 12px;
+  border: 2px grey outset;
+  background: grey;
+  color: white;
+  padding: .5em
+}
+.home{
+  position: absolute;
+  left: 170px;
+  top: 12px;
+  border: 2px grey outset;
+  background: grey;
+  color: white;
+  padding: .5em
 }
 .hidden{
   display: none;

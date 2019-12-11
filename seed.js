@@ -3,6 +3,13 @@ const Rock = require('./models/rock')
 
 const rocks = [
     {
+        title: 'Doughnut Rock',
+        description: 'Doughnuts not included',
+        price: 10,
+        image: 'https://i.imgur.com/TfcYHCY.jpg',
+        rating: 4
+    },
+    {
         title: 'Steve',
         description: 'Cool guy, cooler rock',
         price: 5,
@@ -37,6 +44,7 @@ const rocks = [
         image: 'https://live.staticflickr.com/6137/6025736265_8442422561_b.jpg',
         rating: 4.2
     }
+    
   ];
 
 function seedRocks() {  

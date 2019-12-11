@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class='container'>
+    <div class='container pay'>
         <div class='columns'>           
                 <div class="field">
                     <label for="card_number">Card Number</label>
@@ -58,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <br />
         <div class="columns">
             <div class='column is-12'>
                 <button type="submit" class="button is-primary is-large is-pulled-right" @click.prevent="validate" :disabled="cardCheckSending">
@@ -168,6 +169,10 @@ export default {
 </script>
 
 <style>
+.pay{
+    border: 5px grey outset;
+    padding: 1em
+}
 /* h2 { text-decoration: underline; }
 .textarea:not([rows]) { max-height: 110px; min-height: 110px; }
 .container { margin-bottom: 30px; }

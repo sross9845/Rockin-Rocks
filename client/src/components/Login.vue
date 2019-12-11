@@ -1,5 +1,5 @@
 <template>
-    <div class="App">
+    <div class="Login">
                 <h3>Log into your account!</h3>
                 {{message}}
                 <form @submit="handleSubmit">
@@ -44,3 +44,17 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .Login{
+        text-align: center;
+        border: 5px grey outset;
+        width: 400px;
+        height: 400px;
+        display: block;
+        margin: 2em auto
+    }
+    .Login form{
+        margin-top: 2em;
+    }
+</style>

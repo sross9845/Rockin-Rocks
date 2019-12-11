@@ -1,5 +1,5 @@
 <template>
-    <div class="App">
+    <div class="Signup">
                 <h3>Create a new account</h3>
                 <form @submit="handleSubmit">
                 First Name: <input type='text' name='firstName' v-model="firstName" /> <br />
@@ -66,3 +66,17 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .Signup{
+        text-align: center;
+        border: 5px grey outset;
+        width: 400px;
+        height: 400px;
+        display: block;
+        margin: 2em auto
+    }
+    .Signup form{
+        margin-top: 2em;
+    }
+</style>

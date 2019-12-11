@@ -64,12 +64,10 @@ router.get('/removeitem/:uid/:pid', (req,res) => {
         })
         res.json(order)
     })
-   
-   
 })
 
-router.get('/all', (req,res) => {
-    Order.find({userId: req.body.user_id}, (err,orders) => {
+router.get('/all/:uid', (req,res) => {
+    Order.find({userId: req.params.uid, completed: true}, (err,orders) => {
         res.send(orders)
     })
 })
