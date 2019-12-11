@@ -1,12 +1,13 @@
 <template>
   <div>
+  <div v-if="user">
   <nav>
     <img class="logo" height="75px" width="150px" src="https://i.imgur.com/qGYzvnC.png" alt="Logo">
     <router-link class="home" to="/">Home</router-link>
     <router-link class="history" to="/history">Order History</router-link>
     <button v-bind:class='{logout: user, hidden: !user}' @click="logOut">Log Out</button>
   </nav>
-  <div v-if="user" class="container mt-4" >
+  <div class="container mt-4" >
   <h3 class="App">We hope you love our Rockin Rocks. Unfortunately you can only order one of each rock at a time as it takes some time for us to make it and demand is high.</h3>
     <div class="row">
       <div class="col-md-7">
@@ -24,13 +25,24 @@
         <cart v-on:pay="pay()" v-on:remove-from-cart="removeFromCart($event)" :items="cart"></cart>
     </div>
   </div>
-    
+  </div>
   </div>
   <div v-else-if="login" >
-
+    <nav>
+    <img class="logo" height="75px" width="150px" src="https://i.imgur.com/qGYzvnC.png" alt="Logo">
+    <router-link class="home" to="/">Home</router-link>
+    <!-- <router-link class="history" to="/history">Order History</router-link> -->
+    <button v-bind:class='{logout: user, hidden: !user}' @click="logOut">Log Out</button>
+    </nav>
         <Login v-bind:liftToken="liftToken" v-bind:toggleLogin="toggleLogin"/>
   </div>
   <div v-else-if="!login">
+    <nav>
+    <img class="logo" height="75px" width="150px" src="https://i.imgur.com/qGYzvnC.png" alt="Logo">
+    <router-link class="home" to="/">Home</router-link>
+    <!-- <router-link class="history" to="/history">Order History</router-link> -->
+    <button v-bind:class='{logout: user, hidden: !user}' @click="logOut">Log Out</button>
+    </nav>
         <Signup v-bind:liftToken="liftToken" v-bind:toggleLogin="toggleLogin"/>
   </div>
   </div>
