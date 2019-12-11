@@ -11,7 +11,7 @@
         <hr />
         <ul>Items</ul>
         <div :key="product.id" v-for="product in order.products">
-            <li>Title: {{product.title}} | Price: {{product.price}}</li>
+            <li>Product: {{product.title}} | Price: {{product.price}}</li>
         </div>
         <hr />
     </div>
